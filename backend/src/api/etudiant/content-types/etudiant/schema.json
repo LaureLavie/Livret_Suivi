@@ -34,6 +34,12 @@
       "relation": "manyToOne",
       "target": "api::formation.formation",
       "inversedBy": "etudiants"
+    },
+    "livret": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::livret.livret",
+      "mappedBy": "etudiant"
     }
   }
 }
