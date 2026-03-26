@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-montserrat), system-ui, sans-serif;
+
+  /* Couleurs du projet */
+  --color-bleu-cobalt: #1e3a8a;
+  --color-bleu-cyan: #22d3ee;
+  --color-orange-brique: #c2410c;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-montserrat), system-ui, sans-serif;
+  }
+  
+  body {
+    @apply antialiased bg-white text-gray-900;
+  }
+}
+
+/* Classes utilitaires personnalisées */
+.text-bleu-cobalt { color: var(--color-bleu-cobalt); }
+.bg-bleu-cobalt { background-color: var(--color-bleu-cobalt); }
+.text-bleu-cyan { color: var(--color-bleu-cyan); }
+.bg-bleu-cyan { background-color: var(--color-bleu-cyan); }
+.text-orange-brique { color: var(--color-orange-brique); }
+.bg-orange-brique { background-color: var(--color-orange-brique); }

@@ -1,0 +1,63 @@
+version: "3.9"
+
+services:
+  strapi:
+    container_name: livret-strapi
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_CLIENT: postgres
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_NAME: ${POSTGRES_DB}
+      DATABASE_USERNAME: ${POSTGRES_USER}
+      DATABASE_PASSWORD: ${POSTGRES_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
+      APP_KEYS: ${APP_KEYS}
+      API_TOKEN_SALT: ${API_TOKEN_SALT}
+      TRANSFER_TOKEN_SALT: ${TRANSFER_TOKEN_SALT}
+      NODE_ENV: development
+    ports:
+      - "1337:1337"
+    volumes:
+      - ./backend/src:/app/src
+      - ./backend/config:/app/config
+      - strapi-uploads:/app/public/uploads
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: livret-postgres
+    image: postgres:16-alpine
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"  
+
+  frontend:
+    container_name: livret-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      NEXT_PUBLIC_STRAPI_URL: http://strapi:1337
+    ports:
+      - "3000:3000"
+    depends_on:
+      - strapi
+
+volumes:
+  postgres-data:
+  strapi-uploads:
