@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone', 
+  output: 'standalone',        // Important pour Docker
   images: {
     remotePatterns: [
       {
@@ -8,8 +8,12 @@ const nextConfig = {
         hostname: 'localhost',
       },
       {
+        protocol: 'http',
+        hostname: 'strapi',
+      },
+      {
         protocol: 'https',
-        hostname: 'strapi.*',  
+        hostname: '**',
       },
     ],
   },
