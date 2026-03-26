@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_livret_infos_entreprises",
+  "info": {
+    "displayName": "Infos Entreprise",
+    "icon": "building"
+  },
+  "attributes": {
+    "designation": { "type": "string", "required": true },
+    "adresse": { "type": "text" },
+    "tuteurNom": { "type": "string", "required": true },
+    "tuteurFonction": { "type": "string" },
+    "tuteurTelephone": { "type": "string" },
+    "tuteurEmail": { "type": "email" }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "etudiants",
+  "info": {
+    "singularName": "etudiant",
+    "pluralName": "etudiants",
+    "displayName": "Étudiant",
+    "description": "Apprentis / Étudiants en alternance"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "nom": {
+      "type": "string",
+      "required": true
+    },
+    "prenom": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "telephone": {
+      "type": "string"
+    },
+    "adresse": {
+      "type": "text"
+    },
+    "formation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::formation.formation",
+      "inversedBy": "etudiants"
+    }
+  }
+}

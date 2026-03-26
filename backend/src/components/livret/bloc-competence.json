@@ -1,0 +1,11 @@
+{
+  "collectionName": "components_livret_bloc_competences",
+  "info": {
+    "displayName": "Bloc de compétence",
+    "icon": "bulletList"
+  },
+  "attributes": {
+    "titre": { "type": "string", "required": true },
+    "description": { "type": "text" }
+  }
+}

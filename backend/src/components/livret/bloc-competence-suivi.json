@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_livret_bloc_competence_suivis",
+  "info": {
+    "displayName": "Suivi Compétence",
+    "icon": "check"
+  },
+  "attributes": {
+    "competence": { "type": "string", "required": true },
+    "niveauAtteint": {
+      "type": "enumeration",
+      "enum": ["Non acquis", "En cours", "Acquis", "Maîtrisé"]
+    },
+    "commentaireTuteur": { "type": "richtext" },
+    "commentaireReferent": { "type": "richtext" }
+  }
+}

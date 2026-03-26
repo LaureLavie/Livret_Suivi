@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "livrets",
+  "info": {
+    "singularName": "livret",
+    "pluralName": "livrets",
+    "displayName": "Livret de suivi étudiant",
+    "description": "Livret nominatif par étudiant"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "etudiant": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::etudiant.etudiant",
+      "inversedBy": "livret"
+    },
+    "tokenAcces": {
+      "type": "uid",
+      "required": true,
+      "unique": true
+    },
+    "statut": {
+      "type": "enumeration",
+      "enum": ["brouillon", "envoye-tuteur", "en-cours", "termine"],
+      "default": "brouillon"
+    },
+    "entreprise": {
+      "type": "component",
+      "component": "livret.infos-entreprise",
+      "repeatable": false
+    },
+    "suiviCompetences": {
+      "type": "dynamiczone",
+      "components": [
+        "livret.bloc-competence-suivi"
+      ]
+    },
+    "bilansIntermediaires": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bilan-suivi.bilan-suivi",
+      "mappedBy": "livret"
+    },
+    "bilanFinal": {
+      "type": "component",
+      "component": "livret.bilan-final",
+      "repeatable": false
+    },
+    "cahierLiaison": {
+      "type": "richtext"
+    }
+  }
+}

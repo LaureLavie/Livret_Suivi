@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bilan-suivis",
+  "info": {
+    "singularName": "bilan-suivi",
+    "pluralName": "bilan-suivis",
+    "displayName": "Bilan de suivi intermédiaire",
+    "description": "Évaluations de suivi (n°1, n°2, n°3...)"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "numero": {
+      "type": "integer",
+      "required": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "missionsRealisees": {
+      "type": "richtext"
+    },
+    "pointsPositifs": {
+      "type": "richtext"
+    },
+    "difficultes": {
+      "type": "richtext"
+    },
+    "objectifsSuivants": {
+      "type": "richtext"
+    },
+    "livret": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::livret.livret",
+      "inversedBy": "bilansIntermediaires"
+    },
+    "signatureTuteur": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "signatureReferent": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "signatureApprenti": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_livret_bilan_finals",
+  "info": {
+    "displayName": "Bilan Final",
+    "icon": "file"
+  },
+  "attributes": {
+    "appreciationTuteur": { "type": "richtext" },
+    "appreciationReferent": { "type": "richtext" },
+    "autoEvaluationApprenti": { "type": "richtext" },
+    "synthesePedagogique": { "type": "richtext" },
+    "decision": {
+      "type": "enumeration",
+      "enum": ["Validé", "En cours de validation", "À revoir"]
+    }
+  }
+}

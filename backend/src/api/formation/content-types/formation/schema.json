@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "formations",
+  "info": {
+    "singularName": "formation",
+    "pluralName": "formations",
+    "displayName": "Formation",
+    "description": "Formations proposées (ex: BTS, Licence, etc.)"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "nom": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "annee": {
+      "type": "string",
+      "required": true
+    },
+    "rncp": {
+      "type": "string"
+    },
+    "blocsCompetences": {
+      "type": "component",
+      "repeatable": true,
+      "component": "livret.bloc-competence"
+    }
+  }
+}
