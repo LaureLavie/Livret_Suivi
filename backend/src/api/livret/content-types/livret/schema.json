@@ -2,8 +2,8 @@
   "kind": "collectionType",
   "collectionName": "livrets",
   "info": {
-    "singularName": "livret-etudiant",
-    "pluralName": "livrets-etudiants",
+    "singularName": "livret",
+    "pluralName": "livrets",
     "displayName": "Livret de suivi étudiant",
     "description": "Livret nominatif par étudiant"
   },
